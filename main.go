@@ -18,5 +18,6 @@ func main() {
 	r.GET("/posts", controllers.GetPosts)
 	r.GET("/posts/:id", controllers.GetPost)
 	r.PUT("/posts/:id", controllers.UpdatePost)
+	r.DELETE("/posts/:id", controllers.DeletePost)
 	r.Run() // This will run using PORT from .env, else :8080 by default
 }
