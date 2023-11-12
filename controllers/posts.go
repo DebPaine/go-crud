@@ -15,7 +15,7 @@ type Post struct {
 // Create a post using data from request body
 func CreatePost(c *gin.Context) {
 	var body Post
-	// binds the incoming request body with the struct and validates it
+	// Decodes the incoming request into the struct and validates it
 	err := c.Bind(&body)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})

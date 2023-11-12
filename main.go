@@ -5,6 +5,7 @@ import (
 	"github.com/DebPaine/go-crud/initializers"
 	"github.com/gin-gonic/gin"
 	_ "github.com/joho/godotenv/autoload" // Since we only want this import for it's side-effect
+	"net/http"
 )
 
 // init function is run before main
@@ -14,6 +15,9 @@ func init() {
 
 func main() {
 	r := gin.Default()
+	r.GET("/hello", func(c *gin.Context){
+		c.JSON(http.StatusOK, gin.H{"response": "Hello world"})
+	})
 	r.POST("/post", controllers.CreatePost)
 	r.GET("/posts", controllers.GetPosts)
 	r.GET("/posts/:id", controllers.GetPost)
